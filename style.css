@@ -11,6 +11,7 @@ body {
   padding: 20px;
 }
 
+/* General Header Styles */
 .headerContainer {
   width: 80%;
   margin: 0 auto;
@@ -18,6 +19,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 header {
@@ -30,6 +32,7 @@ header .logo img {
   height: 40px;
 }
 
+/* Desktop Navigation */
 nav ul {
   list-style: none;
   display: flex;
@@ -39,9 +42,6 @@ nav ul {
 
 nav ul li {
   margin-left: 20px;
-}
-
-nav ul li {
   position: relative;
 }
 
@@ -50,18 +50,18 @@ nav ul li a {
   text-decoration: none;
   font-weight: bold;
   position: relative;
-  padding-bottom: 5px; /* Space for the underline */
+  padding-bottom: 5px;
 }
 
 nav ul li a:hover {
-    text-decoration: none;
-    color: #94ff94;
+  text-decoration: none;
+  color: #94ff94;
 }
 
 nav ul li a::after {
   content: "";
   position: absolute;
-  bottom: -5px; /* Adjust distance from text */
+  bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -72,9 +72,88 @@ nav ul li a::after {
 }
 
 nav ul li a:hover::after {
-  width: 20px; /* Expands the underline on hover */
+  width: 20px;
 }
 
+/* ============================= */
+/* MOBILE RESPONSIVENESS STYLES  */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .headerContainer {
+    width: 90%;
+  }
+
+  /* Hide normal nav by default */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Show menu when active */
+  nav ul.active {
+    display: flex;
+    z-index: 1;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  /* Hamburger Menu Button */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+  }
+
+  .hamburger span {
+    background: #4caf50;
+    height: 4px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger span:nth-child(1) {
+    top: 0;
+  }
+
+  .hamburger span:nth-child(2) {
+    top: 10px;
+  }
+
+  .hamburger span:nth-child(3) {
+    top: 20px;
+  }
+
+  /* Rotate hamburger to X when active */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+}
+
+/*Hero Section*/
 .hero {
   width: calc(100% - 60px);
   margin: 0px auto;
@@ -93,13 +172,12 @@ nav ul li a:hover::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .carousel-item img {
   height: 70vh;
   object-fit: cover;
-  /* Reduce image opacity */
 }
 
 .carousel-caption {
@@ -124,6 +202,17 @@ nav ul li a:hover::after {
   color: white;
 }
 
+@media (max-width: 768px) {
+  .carousel-caption {
+  }
+
+  .carousel-caption h1 {
+    color: white;
+    font-size: 30px;
+  }
+}
+
+/*About Section*/
 .about {
   background: #f9f9f9;
   padding: 60px 0;
@@ -152,11 +241,24 @@ nav ul li a:hover::after {
   text-align: left;
 }
 
+.about-content h2:after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #4caf50;
+  border-radius: 2px;
+}
+
 .about-content p {
   font-size: 1.1rem;
   color: #666;
   line-height: 1.6;
   text-align: left;
+  padding-top: 15px;
 }
 
 .about-image {
@@ -274,6 +376,18 @@ nav ul li a:hover::after {
   background: #45a049;
 }
 
+@media (max-width: 768px) {
+  .service-card {
+    max-width: 80%;
+    flex-direction: column-reverse;
+  }
+
+  .serviceImageDiv {
+    width: 100%;
+  }
+}
+
+/*News Section*/
 .news {
   padding: 80px 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
