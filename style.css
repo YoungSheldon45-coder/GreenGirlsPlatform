@@ -203,9 +203,6 @@ nav ul li a:hover::after {
 }
 
 @media (max-width: 768px) {
-  .carousel-caption {
-  }
-
   .carousel-caption h1 {
     color: white;
     font-size: 30px;
@@ -241,17 +238,6 @@ nav ul li a:hover::after {
   text-align: left;
 }
 
-.about-content h2:after {
-  content: "";
-  position: absolute;
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: #4caf50;
-  border-radius: 2px;
-}
 
 .about-content p {
   font-size: 1.1rem;
